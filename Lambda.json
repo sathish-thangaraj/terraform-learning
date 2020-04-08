@@ -1,0 +1,26 @@
+{
+  "Resources": {
+    "testingLambda": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "<S3bucketName>,
+          "S3Key": "<S3BucketKey>example -> test-b9990455-4b64-45dd-837f-b50388ada8a6.zip"
+        },
+        "FunctionName": "S3-Integration",
+        "Handler": "my-handler",
+        "Role": "<IAMRole>",
+        "Runtime": "python3.8"
+      }
+    },
+"s3invocation": {
+  "Type" : "AWS::Lambda::Permission",
+  "Properties" : {
+    "Action" : "lambda:InvokeFunction",
+    "FunctionName" : "<LambdaARN>",
+    "Principal" : "s3.amazonaws.com",
+    "SourceArn" : "<BucketARN>"
+  }
+}
+  }
+}
