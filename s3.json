@@ -1,0 +1,18 @@
+{
+  "Resources": {
+    "testingBucket": {
+      "Type" : "AWS::S3::Bucket",
+      "Properties" : {
+        "BucketName" : "testing-sathish-lambda",
+        "NotificationConfiguration": {
+          "LambdaConfigurations": [
+            {
+            "Event": "s3:ObjectCreated:*",
+            "Function" : "<Lambda ARN>"
+            }
+          ]
+        }
+        }
+      }
+    }
+  }
